@@ -1,0 +1,119 @@
+<nz-layout>
+  <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
+    <div class="logo">
+      <a routerLink="" routerLinkActive="active" ariaCurrentWhenActive="page"
+        ><img src="/assets/img/logo.png"
+      /></a>
+    </div>
+
+    <ul nz-menu nzTheme="dark" nzMode="inline">
+      <li nz-menu-item>
+        <a
+          routerLink="/home"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+        >
+          <span nz-icon nzType="dashboard" nzTheme="outline"></span>&nbsp;
+          Dashboard
+        </a>
+      </li>
+      <li nz-submenu nz nzOpen nzTitle="Content" nzIcon="book">
+        <ul>
+          <li nz-menu-item>
+            <a
+              routerLink="/mitre"
+              routerLinkActive="active"
+              ariaCurrentWhenActive="page"
+            >
+              <!-- <span nz-icon nzType="unordered-list" nzTheme="outline"></span> -->
+              &nbsp; MITRE ATT&CK
+            </a>
+          </li>
+          <li nz-menu-item>
+            <a routerLink="#">
+              <!-- <span nz-icon nzType="" nzTheme="outline"></span>&nbsp; -->
+              &nbsp; Detection Engineering</a
+            >
+          </li>
+          <li nz-menu-item>
+            <a routerLink="#">
+              <!-- <span nz-icon nzType="" nzTheme="outline"></span>&nbsp; -->
+              &nbsp; Other</a
+            >
+          </li>
+        </ul>
+      </li>
+      <li nz-submenu nz nzTitle="User" nzIcon="user">
+        <ul>
+          <li nz-menu-item>
+            <a
+              routerLink="/user/list-user"
+              routerLinkActive="active"
+              ariaCurrentWhenActive="page"
+            >
+              <span nz-icon nzType="user-add" nzTheme="outline"></span>&nbsp;
+              Users
+            </a>
+          </li>
+          <li nz-menu-item>
+            <a
+              routerLink="/user/history"
+              routerLinkActive="active"
+              ariaCurrentWhenActive="page"
+            >
+              <span nz-icon nzType="history" nzTheme="outline"></span>&nbsp;
+              Logs
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li nz-submenu nzTitle="Settings" nzIcon="setting">
+        <ul>
+          <li nz-menu-item>
+            <a
+              routerLink="/user/profile"
+              routerLinkActive="active"
+              ariaCurrentWhenActive="page"
+            >
+              <span nz-icon nzType="user" nzTheme="outline"></span>&nbsp;Your
+              profile
+            </a>
+          </li>
+          <li nz-menu-item>
+            <a
+              routerLink="LogOut"
+              routerLinkActive="active"
+              ariaCurrentWhenActive="page"
+            >
+              <span nz-icon nzType="logout" nzTheme="outline"></span>&nbsp; Log
+              Out
+            </a>
+          </li>
+          <li nz-menu-item>
+            <span
+              nz-icon
+              nzType="info-circle"
+              nzTheme="outline"
+              onclick=""
+            ></span
+            >&nbsp;About
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      <span
+        class="trigger"
+        nz-icon
+        [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+        (click)="isCollapsed = !isCollapsed"
+      ></span>
+    </nz-header>
+    <nz-content>
+      <router-outlet></router-outlet>
+    </nz-content>
+    <nz-footer>Ant Design ©2020 Implement By Angular</nz-footer>
+  </nz-layout>
+</nz-layout>

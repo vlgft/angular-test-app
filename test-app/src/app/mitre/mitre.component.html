@@ -1,0 +1,28 @@
+<nz-breadcrumb>
+  <nz-breadcrumb-item><a href="/home">Home</a></nz-breadcrumb-item>
+  <nz-breadcrumb-item>Content</nz-breadcrumb-item>
+  <nz-breadcrumb-item>MITRE ATT&CK</nz-breadcrumb-item>
+</nz-breadcrumb>
+<div nz-row class="inner-content">
+  <div nz-col nzSpan="3" class="mitre-tatics">
+    <ul nz-menu>
+      <ng-container *ngFor="let data of mitre_tatic">
+        <li nz-menu-item>{{ data }}</li>
+      </ng-container>
+    </ul>
+  </div>
+  <div nz-col nzSpan="6" class="mitre-techniques">
+    <ul nz-menu>
+      <ng-container *ngFor="let data of mitre_technique">
+        <li nz-menu-item>{{ data }}</li>
+      </ng-container>
+    </ul>
+  </div>
+  <div nz-col [nzSpan]="15" [nzPull]="-2" class="drive-by-compromise">
+    <ul nz-menu>
+      <ng-container *ngFor="let data of drive_compromise">
+        <li nz-menu-item>{{ data }}</li>
+      </ng-container>
+    </ul>
+  </div>
+</div>
