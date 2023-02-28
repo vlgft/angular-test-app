@@ -2,68 +2,55 @@
 	"mitre-tatics": [
 		{
 			"id": 1,
-			"name": "Reconnaissance",
-			"technique_id": [1,2]
+			"name": "Reconnaissance"
 		},
 		{
 			"id": 2,
-			"name": "Resource Development",
-			"technique_id": []
+			"name": "Resource Development"
 		},
 		{
 			"id": 3,
-			"name": "Initial Access",
-			"technique_id": []
+			"name": "Initial Access"
 		},
 		{
 			"id": 4,
-			"name": "Initial Access",
-			"technique_id": []
+			"name": "Initial Access"
 		},
 		{
 			"id": 5,
-			"name": "Persistence",
-			"technique_id": []
+			"name": "Persistence"
 		},
 		{
 			"id": 6,
-			"name": "Privilege",
-			"technique_id": []
+			"name": "Privilege"
 		},
 		{
 			"id": 7,
-			"name": "Defense Evasion",
-			"technique_id": []
+			"name": "Defense Evasion"
 		},
 		{
 			"id": 8,
-			"name": "Credential Access",
-			"technique_id": []
+			"name": "Credential Access"
 		},
 		{
 			"id": 9,
-			"name": "Discovery",
-			"technique_id": []
+			"name": "Discovery"
 		},
 		{
 			"id": 10,
-			"name": "Lateral Movement",
-			"technique_id": []
+			"name": "Lateral Movement"
 		},
 		{
 			"id": 11,
-			"name": "Collection",
-			"technique_id": []
+			"name": "Collection"
 		},
 		{
 			"id": 12,
-			"name": "Command and Control",
-			"technique_id": []
+			"name": "Command and Control"
 		},
 		{
 			"id": 13,
-			"name": "Exfiltration",
-			"technique_id": []
+			"name": "Exfiltration"
 		},
 		{
 			"id": 14,
@@ -76,16 +63,18 @@
 			"id": 1,
 			"mitre_id": "t1595",
 			"name": "Active Scanning",
-			"drive-compromise_id": [1]
+			"tatics_id": 1,
+			"tech_content_id": [1]
 		},
 		{
 			"id": 2,
 			"mitre_id": "t1592",
 			"name": "Gather Victim Host Information",
-			"drive-compromise_id": [2]
+			"tatics_id": 1,
+			"tech_content_id": [2]
 		}
 	],
-	"drive-compromise": [
+	"technique-content": [
 		{
 			"id": 1,
 			"severity": "High",
