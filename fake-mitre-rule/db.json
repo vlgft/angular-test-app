@@ -1,0 +1,123 @@
+{
+	"mitre-tatics": [
+		{
+			"id": 1,
+			"name": "Reconnaissance",
+			"technique_id": [1,2]
+		},
+		{
+			"id": 2,
+			"name": "Resource Development",
+			"technique_id": []
+		},
+		{
+			"id": 3,
+			"name": "Initial Access",
+			"technique_id": []
+		},
+		{
+			"id": 4,
+			"name": "Initial Access",
+			"technique_id": []
+		},
+		{
+			"id": 5,
+			"name": "Persistence",
+			"technique_id": []
+		},
+		{
+			"id": 6,
+			"name": "Privilege",
+			"technique_id": []
+		},
+		{
+			"id": 7,
+			"name": "Defense Evasion",
+			"technique_id": []
+		},
+		{
+			"id": 8,
+			"name": "Credential Access",
+			"technique_id": []
+		},
+		{
+			"id": 9,
+			"name": "Discovery",
+			"technique_id": []
+		},
+		{
+			"id": 10,
+			"name": "Lateral Movement",
+			"technique_id": []
+		},
+		{
+			"id": 11,
+			"name": "Collection",
+			"technique_id": []
+		},
+		{
+			"id": 12,
+			"name": "Command and Control",
+			"technique_id": []
+		},
+		{
+			"id": 13,
+			"name": "Exfiltration",
+			"technique_id": []
+		},
+		{
+			"id": 14,
+			"name": "Impact",
+			"technique_id": []
+		}
+	],
+	"mitre-techniques": [
+		{
+			"id": 1,
+			"mitre_id": "t1595",
+			"name": "Active Scanning",
+			"drive-compromise_id": [1]
+		},
+		{
+			"id": 2,
+			"mitre_id": "t1592",
+			"name": "Gather Victim Host Information",
+			"drive-compromise_id": [2]
+		}
+	],
+	"drive-compromise": [
+		{
+			"id": 1,
+			"severity": "High",
+			"name": "DNS Query to External Service Interaction Domains",
+			"content": "SELECT UTF8(payload) FROM events WHERE UTF8(payload) ILIKE '%.interact.sh%' OR UTF8(payload) ILIKE '%.oast.pro%' OR UTF8(payload) ILIKE '%.oast.live%' OR UTF8(payload) ILIKE '%.oast.site%' OR UTF8(payload) ILIKE '%.oast.online%' OR UTF8(payload) ILIKE '%.oast.fun%' OR UTF8(payload) ILIKE '%.oast.me%' OR UTF8(payload) ILIKE '%.burpcollaborator.net%' OR UTF8(payload) ILIKE '%.oastify.com%' OR UTF8(payload) ILIKE '%.canarytokens.com%' OR UTF8(payload) ILIKE '%.requestbin.net%' OR UTF8(payload) ILIKE '%.dnslog.cn%'",
+			"Author": "Nextron Systems",
+			"status": "Stable"
+		},
+		{
+			"id": 2,
+			"severity": "Medium",
+			"name": "Print History File Contents",
+			"content": "SELECT UTF8(payload) FROM events WHERE LOGSOURCENAME(logsourceid) ILIKE '%linux%' AND (\"Image\" ILIKE '%/cat' OR \"Image\" ILIKE '%/head' OR \"Image\" ILIKE '%/tail' OR \"Image\" ILIKE '%/more') AND ((\"Process CommandLine\" ILIKE '%/.bash_history%' OR \"Process CommandLine\" ILIKE '%/.zsh_history%') OR (\"Process CommandLine\" ILIKE '%_history' OR \"Process CommandLine\" ILIKE '%.history' OR \"Process CommandLine\" ILIKE '%zhistory'))",
+			"Author": "Nextron Systems",
+			"status": "experimental"
+		}
+	],
+	"profile": {
+		"id": 1,
+		"name": "test-admin",
+		"email": "admin@email.com",
+		"birthday": "February 2,1900",
+		"message": "Make things as simple as possible but no simpler.",
+		"city": "Ha Noi",
+		"country": "Viet Nam",
+		"website": "vci.vnpt.vn",
+		"password": "bruno"
+	},
+	"logs": [
+		{
+			"email": "admin@email.com",
+			"desc": "09-01-2023 10:01:02.23 deleted user bruno"
+		}
+	]
+}
