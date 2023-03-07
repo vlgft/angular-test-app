@@ -6,25 +6,147 @@
 <div nz-row class="inner-content">
   <div nz-col nzSpan="3" class="mitre-tatics">
     <ul nz-menu>
-      <ng-container *ngFor="let data of mitre_tatic">
-        <li nz-menu-item onclick="get_mitre_technique(data.id)">
-          {{ data.name }}
+      <ng-container *ngFor="let tatic of mitre_tatic">
+        <li nz-menu-item (click)="get_mitre_technique(tatic.id)">
+          {{ tatic.name }}
         </li>
       </ng-container>
     </ul>
   </div>
   <div nz-col nzSpan="6" class="mitre-techniques">
     <ul nz-menu>
-      <ng-container *ngFor="let data of mitre_technique">
-        <li nz-menu-item onclick="get_rule_content(data.id)">{{ data }}</li>
-      </ng-container>
+      <!-- <ng-container *ngFor="let technique of mitre_technique">
+        <li nz-menu-item (click)="get_mitre_technique(1)">{{ technique }}</li>
+      </ng-container> -->
+      <li
+        nz-menu-item
+        *ngFor="let technique of mitre_technique"
+        (click)="get_sub_technique(technique.tech_content_id)"
+      >
+        {{ technique.name }}
+      </li>
     </ul>
   </div>
-  <div nz-col [nzSpan]="15" [nzPull]="-2" class="tech_content">
+  <div nz-col [nzSpan]="15" [nzPull]="-2" class="mitre-subtech">
     <ul nz-menu>
-      <ng-container *ngFor="let data of drive_compromise">
+      <!-- <ng-container *ngFor="let data of rule_content">
         <li nz-menu-item>{{ data }}</li>
-      </ng-container>
+      </ng-container> -->
+      <li
+        nz-menu-item
+        *ngFor="let subtechnique of mitre_subtechnique"
+        (click)="open()"
+      >
+        {{ subtechnique.name }}
+      </li>
     </ul>
   </div>
+  <!-- drawer edit sub technique -->
+  <nz-drawer
+    [nzBodyStyle]="{ overflow: 'auto' }"
+    [nzMaskClosable]="false"
+    [nzWidth]="720"
+    [nzVisible]="visible"
+    nzTitle="Create"
+    [nzFooter]="footerTpl"
+    (nzOnClose)="close()"
+  >
+    <form nz-form *nzDrawerContent>
+      <div nz-row [nzGutter]="8">
+        <div nz-col nzSpan="12">
+          <nz-form-item>
+            <nz-form-label>Name</nz-form-label>
+            <nz-form-control>
+              <input nz-input placeholder="please enter user name" />
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+        <div nz-col nzSpan="12">
+          <nz-form-item>
+            <nz-form-label>Severity</nz-form-label>
+            <nz-form-control>
+              <input nz-input placeholder="please enter user name" />
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+      </div>
+      <div nz-row [nzGutter]="8">
+        <div nz-col nzSpan="12">
+          <nz-form-item>
+            <nz-form-label>Author</nz-form-label>
+            <nz-form-control>
+              <input nz-input placeholder="please enter user name" />
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+      </div>
+      <div nz-row [nzGutter]="8">
+        <div nz-col nzSpan="12">
+          <nz-form-item>
+            <nz-form-label>Status</nz-form-label>
+            <nz-form-control>
+              <input nz-input placeholder="please enter user name" />
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+        <div nz-col nzSpan="12">
+          <nz-form-item>
+            <nz-form-label>References</nz-form-label>
+            <nz-form-control>
+              <input nz-input placeholder="please enter user name" />
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+        <div nz-col nzSpan="12">
+          <nz-select
+            nzShowSearch
+            nzAllowClear
+            nzPlaceHolder="Choose For"
+            [(ngModel)]="selectedValue"
+          >
+            <nz-option nzLabel="Sigma" nzValue="sigma"></nz-option>
+            <nz-option nzLabel="QRadar" nzValue="qradar"></nz-option>
+            <nz-option nzLabel="Splunk" nzValue="splunk"></nz-option>
+            <nz-option nzLabel="Elastic" nzValue="elasticsearch"></nz-option>
+            <nz-option nzLabel="Regex Grep" nzValue="Regex Grep"></nz-option>
+          </nz-select>
+        </div>
+      </div>
+      <div nz-col nzSpan="12">
+        <nz-form-item>
+          <nz-form-label>Description</nz-form-label>
+          <nz-form-control>
+            <textarea
+              nz-input
+              placeholder="please enter url description"
+              [nzAutosize]="{ minRows: 4, maxRows: 4 }"
+            ></textarea>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div nz-row [nzGutter]="8">
+        <div nz-col nzSpan="24">
+          <nz-form-item>
+            <nz-form-label>Rules</nz-form-label>
+            <nz-form-control>
+              <textarea
+                nz-input
+                placeholder="please enter url description"
+                [nzAutosize]="{ minRows: 4, maxRows: 4 }"
+              ></textarea>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+      </div>
+    </form>
+
+    <ng-template #footerTpl>
+      <div style="float: right">
+        <button nz-button style="margin-right: 8px" (click)="close()">
+          Cancel
+        </button>
+        <button nz-button nzType="primary" (click)="close()">Submit</button>
+      </div>
+    </ng-template>
+  </nz-drawer>
 </div>

@@ -32,13 +32,17 @@ export class ServerHttpService {
     return this.httpClient.get<any>(url, httpOptions).pipe(catchError(this.handleError))
   }
 
-  public getMitreTechnique(): Observable<any> {
-    const url = `${this.REST_API_SERVER}/mitre-techniques`;
+  public getMitreTechnique(tatic_id: number): Observable<any> {
+    const url = `${this.REST_API_SERVER}/mitre-techniques?tatic_id=` + tatic_id;
     return this.httpClient.get<any>(url, httpOptions).pipe(catchError(this.handleError))
   }
 
-  public getDriveCompromise(): Observable<any> {
-    const url = `${this.REST_API_SERVER}/drive-compromise`;
+  public getMitreSubTechnique(tech_ids: Array<number>): Observable<any> {
+    let tmp = '';
+    for (const k in tech_ids) {
+      tmp+='id='+tech_ids[k]+'&'
+    }
+    const url = `${this.REST_API_SERVER}/mitre-subtechniques?`+tmp.slice(0, -1);
     return this.httpClient.get<any>(url, httpOptions).pipe(catchError(this.handleError))
   }
 

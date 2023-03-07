@@ -54,8 +54,7 @@
 		},
 		{
 			"id": 14,
-			"name": "Impact",
-			"technique_id": []
+			"name": "Impact"
 		}
 	],
 	"mitre-techniques": [
@@ -63,22 +62,135 @@
 			"id": 1,
 			"mitre_id": "t1595",
 			"name": "Active Scanning",
-			"tatics_id": 1,
-			"tech_content_id": [1]
+			"tatic_id": 1,
+			"tech_content_id": [1, 18, 19]
 		},
 		{
 			"id": 2,
 			"mitre_id": "t1592",
 			"name": "Gather Victim Host Information",
-			"tatics_id": 1,
+			"tatic_id": 2,
 			"tech_content_id": [2]
+		},
+		{
+			"id": 3,
+			"mitre_id": "t1595",
+			"name": "Attack name with tatic id 3.000",
+			"tatic_id": 3,
+			"tech_content_id": [3, 15]
+		},
+		{
+			"id": 4,
+			"mitre_id": "t1592",
+			"name": "Attack name with tatic id 4",
+			"tatic_id": 4,
+			"tech_content_id": [4]
+		},
+		{
+			"id": 5,
+			"mitre_id": "t1595",
+			"name": "Attack name with tatic id 5",
+			"tatic_id": 5,
+			"tech_content_id": [5, 16]
+		},
+		{
+			"id": 6,
+			"mitre_id": "t1592",
+			"name": "Attack name with tatic id 666666",
+			"tatic_id": 6,
+			"tech_content_id": [6]
+		},
+		{
+			"id": 7,
+			"mitre_id": "t1595",
+			"name": "Attack name with tatic id 7",
+			"tatic_id": 7,
+			"tech_content_id": [7]
+		},
+		{
+			"id": 8,
+			"mitre_id": "t1592",
+			"name": "Attack name with tatic id 88888888",
+			"tatic_id": 8,
+			"tech_content_id": [8, 17]
+		},
+		{
+			"id": 9,
+			"mitre_id": "t1595",
+			"name": "Attack name with tatic id 9",
+			"tatic_id": 9,
+			"tech_content_id": [9]
+		},
+		{
+			"id": 10,
+			"mitre_id": "t1592",
+			"name": "Attack name with tatic id 10",
+			"tatic_id": 10,
+			"tech_content_id": [10]
+		},
+		{
+			"id": 11,
+			"mitre_id": "t1595",
+			"name": "Attack name with tatic id 11",
+			"tatic_id": 11,
+			"tech_content_id": [11]
+		},
+		{
+			"id": 12,
+			"mitre_id": "t1592",
+			"name": "Attack name with tatic id 12",
+			"tatic_id": 12,
+			"tech_content_id": [12]
+		},
+		{
+			"id": 13,
+			"mitre_id": "t1595",
+			"name": "Attack name with tatic id 13",
+			"tatic_id": 13,
+			"tech_content_id": [13]
+		},
+		{
+			"id": 14,
+			"mitre_id": "t1592",
+			"name": "Attack name with tatic id 14",
+			"tatic_id": 14,
+			"tech_content_id": [14]
+		},
+		{
+			"id": 15,
+			"mitre_id": "t1595",
+			"name": "Attack name with tatic id 3.000001",
+			"tatic_id": 3,
+			"tech_content_id": [15]
+		},
+		{
+			"id": 16,
+			"mitre_id": "t1592",
+			"name": "Attack name with tatic id 444444",
+			"tatic_id": 4,
+			"tech_content_id": [4]
+		},
+		{
+			"id": 17,
+			"mitre_id": "t1595",
+			"name": "Attack name with tatic id 6",
+			"tatic_id": 6,
+			"tech_content_id": [6]
+		},
+		{
+			"id": 18,
+			"mitre_id": "t1592",
+			"name": "Attack name with tatic id 8",
+			"tatic_id": 8,
+			"tech_content_id": [7]
 		}
 	],
-	"technique-content": [
+	"mitre-subtechniques": [
 		{
 			"id": 1,
 			"severity": "High",
 			"name": "DNS Query to External Service Interaction Domains",
+			"description": "Mô tả rule nè. ahihi",
 			"content": "SELECT UTF8(payload) FROM events WHERE UTF8(payload) ILIKE '%.interact.sh%' OR UTF8(payload) ILIKE '%.oast.pro%' OR UTF8(payload) ILIKE '%.oast.live%' OR UTF8(payload) ILIKE '%.oast.site%' OR UTF8(payload) ILIKE '%.oast.online%' OR UTF8(payload) ILIKE '%.oast.fun%' OR UTF8(payload) ILIKE '%.oast.me%' OR UTF8(payload) ILIKE '%.burpcollaborator.net%' OR UTF8(payload) ILIKE '%.oastify.com%' OR UTF8(payload) ILIKE '%.canarytokens.com%' OR UTF8(payload) ILIKE '%.requestbin.net%' OR UTF8(payload) ILIKE '%.dnslog.cn%'",
 			"Author": "Nextron Systems",
 			"status": "Stable"
@@ -86,7 +198,161 @@
 		{
 			"id": 2,
 			"severity": "Medium",
+			"name": "Print History File Contents 12",
+			"description": "Mô tả rule nè. ahihi",
+			"content": "SELECT UTF8(payload) FROM events WHERE LOGSOURCENAME(logsourceid) ILIKE '%linux%' AND (\"Image\" ILIKE '%/cat' OR \"Image\" ILIKE '%/head' OR \"Image\" ILIKE '%/tail' OR \"Image\" ILIKE '%/more') AND ((\"Process CommandLine\" ILIKE '%/.bash_history%' OR \"Process CommandLine\" ILIKE '%/.zsh_history%') OR (\"Process CommandLine\" ILIKE '%_history' OR \"Process CommandLine\" ILIKE '%.history' OR \"Process CommandLine\" ILIKE '%zhistory'))",
+			"Author": "Nextron Systems",
+			"status": "experimental"
+		},
+		{
+			"id": 3,
+			"severity": "Medium",
+			"name": "Print History File Contents 2",
+			"description": "Mô tả rule nè. ahihi",
+			"content": "SELECT UTF8(payload) FROM events WHERE LOGSOURCENAME(logsourceid) ILIKE '%linux%' AND (\"Image\" ILIKE '%/cat' OR \"Image\" ILIKE '%/head' OR \"Image\" ILIKE '%/tail' OR \"Image\" ILIKE '%/more') AND ((\"Process CommandLine\" ILIKE '%/.bash_history%' OR \"Process CommandLine\" ILIKE '%/.zsh_history%') OR (\"Process CommandLine\" ILIKE '%_history' OR \"Process CommandLine\" ILIKE '%.history' OR \"Process CommandLine\" ILIKE '%zhistory'))",
+			"Author": "Nextron Systems",
+			"status": "experimental"
+		},
+		{
+			"id": 4,
+			"severity": "Medium",
+			"name": "Print History File Contents 3",
+			"description": "Mô tả rule nè. ahihi",
+			"content": "SELECT UTF8(payload) FROM events WHERE LOGSOURCENAME(logsourceid) ILIKE '%linux%' AND (\"Image\" ILIKE '%/cat' OR \"Image\" ILIKE '%/head' OR \"Image\" ILIKE '%/tail' OR \"Image\" ILIKE '%/more') AND ((\"Process CommandLine\" ILIKE '%/.bash_history%' OR \"Process CommandLine\" ILIKE '%/.zsh_history%') OR (\"Process CommandLine\" ILIKE '%_history' OR \"Process CommandLine\" ILIKE '%.history' OR \"Process CommandLine\" ILIKE '%zhistory'))",
+			"Author": "Nextron Systems",
+			"status": "experimental"
+		},
+		{
+			"id": 5,
+			"severity": "Medium",
+			"name": "Print History File Contents 4",
+			"description": "Mô tả rule nè. ahihi",
+			"content": "SELECT UTF8(payload) FROM events WHERE LOGSOURCENAME(logsourceid) ILIKE '%linux%' AND (\"Image\" ILIKE '%/cat' OR \"Image\" ILIKE '%/head' OR \"Image\" ILIKE '%/tail' OR \"Image\" ILIKE '%/more') AND ((\"Process CommandLine\" ILIKE '%/.bash_history%' OR \"Process CommandLine\" ILIKE '%/.zsh_history%') OR (\"Process CommandLine\" ILIKE '%_history' OR \"Process CommandLine\" ILIKE '%.history' OR \"Process CommandLine\" ILIKE '%zhistory'))",
+			"Author": "Nextron Systems",
+			"status": "experimental"
+		},
+		{
+			"id": 6,
+			"severity": "Medium",
+			"name": "Print History File Contents 1",
+			"description": "Mô tả rule nè. ahihi",
+			"content": "SELECT UTF8(payload) FROM events WHERE LOGSOURCENAME(logsourceid) ILIKE '%linux%' AND (\"Image\" ILIKE '%/cat' OR \"Image\" ILIKE '%/head' OR \"Image\" ILIKE '%/tail' OR \"Image\" ILIKE '%/more') AND ((\"Process CommandLine\" ILIKE '%/.bash_history%' OR \"Process CommandLine\" ILIKE '%/.zsh_history%') OR (\"Process CommandLine\" ILIKE '%_history' OR \"Process CommandLine\" ILIKE '%.history' OR \"Process CommandLine\" ILIKE '%zhistory'))",
+			"Author": "Nextron Systems",
+			"status": "experimental"
+		},
+		{
+			"id": 7,
+			"severity": "Medium",
+			"name": "Print History File Contents 111",
+			"description": "Mô tả rule nè. ahihi",
+			"content": "SELECT UTF8(payload) FROM events WHERE LOGSOURCENAME(logsourceid) ILIKE '%linux%' AND (\"Image\" ILIKE '%/cat' OR \"Image\" ILIKE '%/head' OR \"Image\" ILIKE '%/tail' OR \"Image\" ILIKE '%/more') AND ((\"Process CommandLine\" ILIKE '%/.bash_history%' OR \"Process CommandLine\" ILIKE '%/.zsh_history%') OR (\"Process CommandLine\" ILIKE '%_history' OR \"Process CommandLine\" ILIKE '%.history' OR \"Process CommandLine\" ILIKE '%zhistory'))",
+			"Author": "Nextron Systems",
+			"status": "experimental"
+		},
+		{
+			"id": 8,
+			"severity": "Medium",
+			"name": "Print History File Contents111111",
+			"description": "Mô tả rule nè. ahihi",
+			"content": "SELECT UTF8(payload) FROM events WHERE LOGSOURCENAME(logsourceid) ILIKE '%linux%' AND (\"Image\" ILIKE '%/cat' OR \"Image\" ILIKE '%/head' OR \"Image\" ILIKE '%/tail' OR \"Image\" ILIKE '%/more') AND ((\"Process CommandLine\" ILIKE '%/.bash_history%' OR \"Process CommandLine\" ILIKE '%/.zsh_history%') OR (\"Process CommandLine\" ILIKE '%_history' OR \"Process CommandLine\" ILIKE '%.history' OR \"Process CommandLine\" ILIKE '%zhistory'))",
+			"Author": "Nextron Systems",
+			"status": "experimental"
+		},
+		{
+			"id": 9,
+			"severity": "Medium",
+			"name": "Print History File Contents 3333",
+			"description": "Mô tả rule nè. ahihi",
+			"content": "SELECT UTF8(payload) FROM events WHERE LOGSOURCENAME(logsourceid) ILIKE '%linux%' AND (\"Image\" ILIKE '%/cat' OR \"Image\" ILIKE '%/head' OR \"Image\" ILIKE '%/tail' OR \"Image\" ILIKE '%/more') AND ((\"Process CommandLine\" ILIKE '%/.bash_history%' OR \"Process CommandLine\" ILIKE '%/.zsh_history%') OR (\"Process CommandLine\" ILIKE '%_history' OR \"Process CommandLine\" ILIKE '%.history' OR \"Process CommandLine\" ILIKE '%zhistory'))",
+			"Author": "Nextron Systems",
+			"status": "experimental"
+		},
+		{
+			"id": 10,
+			"severity": "Medium",
+			"name": "Print History File Contents121231",
+			"description": "Mô tả rule nè. ahihi",
+			"content": "SELECT UTF8(payload) FROM events WHERE LOGSOURCENAME(logsourceid) ILIKE '%linux%' AND (\"Image\" ILIKE '%/cat' OR \"Image\" ILIKE '%/head' OR \"Image\" ILIKE '%/tail' OR \"Image\" ILIKE '%/more') AND ((\"Process CommandLine\" ILIKE '%/.bash_history%' OR \"Process CommandLine\" ILIKE '%/.zsh_history%') OR (\"Process CommandLine\" ILIKE '%_history' OR \"Process CommandLine\" ILIKE '%.history' OR \"Process CommandLine\" ILIKE '%zhistory'))",
+			"Author": "Nextron Systems",
+			"status": "experimental"
+		},
+		{
+			"id": 11,
+			"severity": "Medium",
+			"name": "Print History File Contents 43123",
+			"description": "Mô tả rule nè. ahihi",
+			"content": "SELECT UTF8(payload) FROM events WHERE LOGSOURCENAME(logsourceid) ILIKE '%linux%' AND (\"Image\" ILIKE '%/cat' OR \"Image\" ILIKE '%/head' OR \"Image\" ILIKE '%/tail' OR \"Image\" ILIKE '%/more') AND ((\"Process CommandLine\" ILIKE '%/.bash_history%' OR \"Process CommandLine\" ILIKE '%/.zsh_history%') OR (\"Process CommandLine\" ILIKE '%_history' OR \"Process CommandLine\" ILIKE '%.history' OR \"Process CommandLine\" ILIKE '%zhistory'))",
+			"Author": "Nextron Systems",
+			"status": "experimental"
+		},
+		{
+			"id": 12,
+			"severity": "Medium",
+			"name": "Print History File Contents 22222222222",
+			"description": "Mô tả rule nè. ahihi",
+			"content": "SELECT UTF8(payload) FROM events WHERE LOGSOURCENAME(logsourceid) ILIKE '%linux%' AND (\"Image\" ILIKE '%/cat' OR \"Image\" ILIKE '%/head' OR \"Image\" ILIKE '%/tail' OR \"Image\" ILIKE '%/more') AND ((\"Process CommandLine\" ILIKE '%/.bash_history%' OR \"Process CommandLine\" ILIKE '%/.zsh_history%') OR (\"Process CommandLine\" ILIKE '%_history' OR \"Process CommandLine\" ILIKE '%.history' OR \"Process CommandLine\" ILIKE '%zhistory'))",
+			"Author": "Nextron Systems",
+			"status": "experimental"
+		},
+		{
+			"id": 13,
+			"severity": "Medium",
+			"name": "Print History File Contents c12 d12e12",
+			"description": "Mô tả rule nè. ahihi",
+			"content": "SELECT UTF8(payload) FROM events WHERE LOGSOURCENAME(logsourceid) ILIKE '%linux%' AND (\"Image\" ILIKE '%/cat' OR \"Image\" ILIKE '%/head' OR \"Image\" ILIKE '%/tail' OR \"Image\" ILIKE '%/more') AND ((\"Process CommandLine\" ILIKE '%/.bash_history%' OR \"Process CommandLine\" ILIKE '%/.zsh_history%') OR (\"Process CommandLine\" ILIKE '%_history' OR \"Process CommandLine\" ILIKE '%.history' OR \"Process CommandLine\" ILIKE '%zhistory'))",
+			"Author": "Nextron Systems",
+			"status": "experimental"
+		},
+		{
+			"id": 14,
+			"severity": "Medium",
+			"name": "Print History File Contents 1231 đ12",
+			"description": "Mô tả rule nè. ahihi",
+			"content": "SELECT UTF8(payload) FROM events WHERE LOGSOURCENAME(logsourceid) ILIKE '%linux%' AND (\"Image\" ILIKE '%/cat' OR \"Image\" ILIKE '%/head' OR \"Image\" ILIKE '%/tail' OR \"Image\" ILIKE '%/more') AND ((\"Process CommandLine\" ILIKE '%/.bash_history%' OR \"Process CommandLine\" ILIKE '%/.zsh_history%') OR (\"Process CommandLine\" ILIKE '%_history' OR \"Process CommandLine\" ILIKE '%.history' OR \"Process CommandLine\" ILIKE '%zhistory'))",
+			"Author": "Nextron Systems",
+			"status": "experimental"
+		},
+		{
+			"id": 15,
+			"severity": "Medium",
+			"name": "Print History File Contents d12e12ed",
+			"description": "Mô tả rule nè. ahihi",
+			"content": "SELECT UTF8(payload) FROM events WHERE LOGSOURCENAME(logsourceid) ILIKE '%linux%' AND (\"Image\" ILIKE '%/cat' OR \"Image\" ILIKE '%/head' OR \"Image\" ILIKE '%/tail' OR \"Image\" ILIKE '%/more') AND ((\"Process CommandLine\" ILIKE '%/.bash_history%' OR \"Process CommandLine\" ILIKE '%/.zsh_history%') OR (\"Process CommandLine\" ILIKE '%_history' OR \"Process CommandLine\" ILIKE '%.history' OR \"Process CommandLine\" ILIKE '%zhistory'))",
+			"Author": "Nextron Systems",
+			"status": "experimental"
+		},
+		{
+			"id": 16,
+			"severity": "Medium",
+			"name": "Print History File Contents 12d1d1d12",
+			"description": "Mô tả rule nè. ahihi",
+			"content": "SELECT UTF8(payload) FROM events WHERE LOGSOURCENAME(logsourceid) ILIKE '%linux%' AND (\"Image\" ILIKE '%/cat' OR \"Image\" ILIKE '%/head' OR \"Image\" ILIKE '%/tail' OR \"Image\" ILIKE '%/more') AND ((\"Process CommandLine\" ILIKE '%/.bash_history%' OR \"Process CommandLine\" ILIKE '%/.zsh_history%') OR (\"Process CommandLine\" ILIKE '%_history' OR \"Process CommandLine\" ILIKE '%.history' OR \"Process CommandLine\" ILIKE '%zhistory'))",
+			"Author": "Nextron Systems",
+			"status": "experimental"
+		},
+		{
+			"id": 17,
+			"severity": "Medium",
+			"name": "Print History File Contents de12d1d1",
+			"description": "Mô tả rule nè. ahihi",
+			"content": "SELECT UTF8(payload) FROM events WHERE LOGSOURCENAME(logsourceid) ILIKE '%linux%' AND (\"Image\" ILIKE '%/cat' OR \"Image\" ILIKE '%/head' OR \"Image\" ILIKE '%/tail' OR \"Image\" ILIKE '%/more') AND ((\"Process CommandLine\" ILIKE '%/.bash_history%' OR \"Process CommandLine\" ILIKE '%/.zsh_history%') OR (\"Process CommandLine\" ILIKE '%_history' OR \"Process CommandLine\" ILIKE '%.history' OR \"Process CommandLine\" ILIKE '%zhistory'))",
+			"Author": "Nextron Systems",
+			"status": "experimental"
+		},
+		{
+			"id": 18,
+			"severity": "Medium",
+			"name": "Print History File Contents d12dx1d12",
+			"description": "Mô tả rule nè. ahihi",
+			"content": "SELECT UTF8(payload) FROM events WHERE LOGSOURCENAME(logsourceid) ILIKE '%linux%' AND (\"Image\" ILIKE '%/cat' OR \"Image\" ILIKE '%/head' OR \"Image\" ILIKE '%/tail' OR \"Image\" ILIKE '%/more') AND ((\"Process CommandLine\" ILIKE '%/.bash_history%' OR \"Process CommandLine\" ILIKE '%/.zsh_history%') OR (\"Process CommandLine\" ILIKE '%_history' OR \"Process CommandLine\" ILIKE '%.history' OR \"Process CommandLine\" ILIKE '%zhistory'))",
+			"Author": "Nextron Systems",
+			"status": "experimental"
+		},
+		{
+			"id": 19,
+			"severity": "Medium",
 			"name": "Print History File Contents",
+			"description": "Mô tả rule nè. ahihi",
 			"content": "SELECT UTF8(payload) FROM events WHERE LOGSOURCENAME(logsourceid) ILIKE '%linux%' AND (\"Image\" ILIKE '%/cat' OR \"Image\" ILIKE '%/head' OR \"Image\" ILIKE '%/tail' OR \"Image\" ILIKE '%/more') AND ((\"Process CommandLine\" ILIKE '%/.bash_history%' OR \"Process CommandLine\" ILIKE '%/.zsh_history%') OR (\"Process CommandLine\" ILIKE '%_history' OR \"Process CommandLine\" ILIKE '%.history' OR \"Process CommandLine\" ILIKE '%zhistory'))",
 			"Author": "Nextron Systems",
 			"status": "experimental"
